@@ -1,0 +1,41 @@
+<!doctype html>
+
+<html ng-app="listaClientes">
+<head>
+    <meta charset="utf-8">
+
+    <title>Lista de Clientes</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <style rel="stylesheet" href="../stylesheets/style.css"></style>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+    <script src="/clientes/clientesService.js"></script>
+    <script src="/clientes/clientesController.js"></script>
+
+</head>
+<body ng-controller="mainController">
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h1>Lista de Clientes</h1>
+        </div>
+
+        <div id="lista-clientes">
+            <table class="table table-striped">
+
+                <tr>
+                    <th>Código</th>
+                    <th>Nome do Cliente</th>
+                    <th>Data de Nascimento</th>
+                </tr>
+
+                <tr ng-repeat="cliente in clientes">
+                    <td>{{ cliente.codigo }}</td>
+                    <td>{{ cliente.nome }}</td>
+                    <td>{{ cliente.dataNascimento| formatDate:'dd/MM/yyyy'}}</td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+</body>
+</html>
